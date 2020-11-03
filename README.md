@@ -1,2 +1,2 @@
-# dasu-api
+# dasu
 Url shortener api by drampi

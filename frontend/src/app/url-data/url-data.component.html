@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <h3 class="text-center">UrlData List</h3>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <th>Id</th>
+          <th>Original Url</th>
+          <th>Short Url</th>
+          <th>Created At</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let urlData of urlDataArr">
+            <td>{{urlData.id}}</td>
+            <td>{{urlData.originalUrl}}</td>
+            <td>{{urlData.shortUrl}}</td>
+            <td>{{urlData.createdAt}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

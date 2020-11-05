@@ -1,11 +1,16 @@
-FROM node:13.12.0-alpine
+FROM node:13.12.0-alpine AS builder
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
 RUN npm install
-RUN npm install -g @angular/cli
+
+ENV PATH="./node_modules/.bin:$PATH"
 
 COPY . .
-EXPOSE 4200
+RUN npm run build
+
+FROM nginx:1.19.3-alpine
+COPY --from=builder /usr/src/app/dist/frontend /usr/share/nginx/html
+COPY ./nginx.conf.prod /etc/nginx/conf.d/nginx.conf

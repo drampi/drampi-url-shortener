@@ -8,7 +8,7 @@ import {UrlData} from "./url-data";
 })
 export class UrlDataService {
 
-  private baseUrl = "http://localhost:8080/api/all-urls"
+  private baseUrl = "/api/all-urls"
 
   constructor(private http: HttpClient) { }
 
